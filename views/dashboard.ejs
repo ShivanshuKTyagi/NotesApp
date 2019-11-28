@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Notes</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="resources/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+  <body>
+  <nav class="navbar navbar-expand-lg">
+  
+    	<a class="navbar-brand" style="color: floralwhite;font-family: cursive;">NOTES</a>
+	
+		<form class="form-inline my-4 my-lg-0 mx-auto" action="/search" method="POST">
+    	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+     	     <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+   		</form>
+	
+		<a class="navbar-brand" style="color: floralwhite;font-family: cursive;">Welcome <%= user%></a>
+	
+	</nav>
+
+		<div class="jumbotron jumbotron-fluid" >
+			<div class="container" >
+				<form action="/add" method="POST">
+					<div class="form-group">
+					  <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Take A Note"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
+		  
+		 
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container" >
+				<div class="card-columns">
+
+
+						<div class="card">
+						  <div class="card-body">
+							<h5 class="card-title">Card title that wraps to a new line</h5>
+							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						  </div>
+						</div>
+
+
+
+					</div>
+		</div>
+
+
+
+
+	  
+	<script src="resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="resources/stretchy.min.js" async></script>
+	<script src="resources/vendor/bootstrap/js/popper.js"></script>
+	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
