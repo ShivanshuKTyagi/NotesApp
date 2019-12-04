@@ -8,18 +8,16 @@
 	<link rel="stylesheet" type="text/css" href="resources/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
   <body>
   <nav class="navbar navbar-expand-lg">
   
-    	<a class="navbar-brand" style="color: floralwhite;font-family: cursive;">NOTES</a>
+    	<a class="navbar-brand" style="color: floralwhite;font-family: sans-serif">NOTES</a>
 	
-		<form class="form-inline my-4 my-lg-0 mx-auto" action="/search" method="POST">
-    	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-     	     <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-   		</form>
-	
-		<a class="navbar-brand" style="color: floralwhite;font-family: cursive;">Welcome <%= user%></a>
+		<a class="navbar-brand my-4 my-lg-0 mx-auto" style="color: floralwhite;font-family: sans-serif">Welcome <%= user%></a>
+
+		<a href='/logout'><button type="button" class="btn btn-primary btn-sm-outline-dark">Logout</button></a>
 	
 	</nav>
 
@@ -27,7 +25,8 @@
 			<div class="container" >
 				<form action="/add" method="POST">
 					<div class="form-group">
-					  <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Take A Note"></textarea>
+						<form action="/add" method="POST">
+						<textarea type="text" class="form-control" name="data"  placeholder="Take A Note" autofocus></textarea>
 					</div>
 					<button type="submit" class="btn btn-primary">Save</button>
 				</form>
@@ -39,17 +38,28 @@
 			<div class="container" >
 				<div class="card-columns">
 
+					
+						<% for(var i=0; i < data.length; i++) { %>
+							<div class="card" id="p1">
+									<div class="card-body">
+										<h6 class="card-text"><%= data[i].note %></h6>
+										<div class="btn-group btn-group-sm" role="group">
+												<form action="/delete" method="POST">
+													<input type="hidden" name="id" value="<%=data[i].id%>" />
+													<button  class="btn btn-sm btn-outline-danger"  >
+														Delete
+													</button>
+												</form>
+												<!-- <button type="button" class="btn btn-sm btn-outline-warning" >Edit</button> -->
+										</div>
+									</div>
+							</div>
+							
 
-						<div class="card">
-						  <div class="card-body">
-							<h5 class="card-title">Card title that wraps to a new line</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						  </div>
-						</div>
+						 <% } %>
 
-
-
-					</div>
+				</div>
+			</div>
 		</div>
 
 
@@ -62,3 +72,12 @@
 	<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
