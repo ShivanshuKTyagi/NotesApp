@@ -184,12 +184,7 @@ app.post('/signup', (req,res)=> {
 			if(err){
 				res.redirect('/error');
 			}
-		users.insertOne({
-			id: makeid(20),
-			name: info["name"],
-			email: info["email"],
-			password: hash
-		});
+			users.update({email:info["email"]},{$set:{name: info["name"],id: makeid(20), password: hash}},{upsert:true});
 		});
 	});
 	res.clearCookie('id');
@@ -206,6 +201,10 @@ app.post('/login', (req,res)=> {
 	users.findOne({email: info["email"]}, (err,item)=>{	
 		if(err){
 			res.redirect('/error');
+		}
+		if(!item){
+			res.render('login', {message : "INVALID DETAILS"});
+			return;
 		}
 		bcrypt.compare(info["password"], item["password"], function(err, result) {
 			if(err){
