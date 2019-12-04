@@ -19,13 +19,13 @@ body::-webkit-scrollbar-thumb
   background-color: rgb(88, 88, 88);}
 
 .navbar{
-position: relative;
+position: sticky;
 top: 0;
 left: 0;
 width: inherit;
 height: fit-content;
-background: rgba(255,255,255,0.4);
-border-bottom: 1px solid rgba(225,225,225,0.5);
+background: rgba(31, 31, 31, 0.6);
+border-bottom: 1px solid rgba(99, 99, 99, 0.5);
 z-index: 1000;
 border-radius: 10px;
 }
@@ -48,4 +48,69 @@ background-size: cover;
 
 .jumbotron-fluid{
 background-color: rgba(255, 255, 255, 0);
+}
+
+.footer{
+  width: inherit;
+height: fit-content;
+background: rgba(31, 31, 31, 0.6);
+border-bottom: 1px solid rgba(99, 99, 99, 0.5);
+z-index: 1000;
+border-radius: 10px;
+}
+
+#shiv{
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.foo-text{
+  color: cornsilk;
+}
+.photo{
+  align-self: left;
+}
+
+.row{
+  padding: 20px;
+}
+
+
+.follow-us{
+  color: cornsilk;
+}
+
+#fb{
+  height: 40px;
+  width: 40px;
+}
+#fb:hover{
+  height: 45px;
+  width: 45px;
+}
+#insta{
+  height: 40px;
+  width: 40px;
+}
+#insta:hover{
+  height: 45px;
+  width: 45px;
+}
+#twitter{
+  height: 40px;
+  width: 40px;
+}
+#twitter:hover{
+  height: 45px;
+  width: 45px;
+}
+#github{
+  height: 40px;
+  width: 40px;
+}
+#github:hover{
+  height: 45px;
+  width: 45px;
 }

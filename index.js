@@ -60,6 +60,9 @@ app.use(express.static(__dirname + '/public'));
 //-------------------------------------------------------------------------------------------------
 //handeling get requests
 app.get('/',(req,res)=>{
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	if(req.cookies["id"]){	
 		res.redirect('/dash');
 	}else{
@@ -67,20 +70,40 @@ app.get('/',(req,res)=>{
 	}
 })
 
+
+
+
+
+//    notes.findOne({id: 'count'}, async function(err,item){
+// 	notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+
+
 app.get('/signup',(req,res) =>{
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	res.render('signup');
 });
 
 
 app.get('/login',(req,res) =>{
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	res.render('login');
 });
 
 app.get('/error',(req,res) =>{
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	res.render('error');
 });
 
 app.get('/logout', (req,res)=> {
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	res.clearCookie('id');
 	res.redirect('/');
 });
@@ -94,6 +117,9 @@ app.get('/logout', (req,res)=> {
 //handeling post requests
 
 app.post('/delete', (req,res)=> {
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	var id_del = req.body["id"];
 	console.log(id_del);
 	notes.deleteOne({id: id_del});
@@ -102,6 +128,9 @@ app.post('/delete', (req,res)=> {
 });
 
 app.post('/add',(req,res) =>{
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	users.findOne({id: req.cookies["id"]}, async function(err,item){
 		if(err){
 			res.redirect('/error');
@@ -116,6 +145,11 @@ app.post('/add',(req,res) =>{
 });
 
 app.get('/dash',(req,res) =>{
+	var counter;
+	notes.findOne({id: 'count'}, async function(err,count){
+		counter = count["count"];
+		notes.updateOne({"id": "count"}, {$set: {"count": counter+1}});})
+	
 	var dat = [];
 	if(req.cookies["id"]){
 		users.findOne({id: req.cookies["id"]}, async function(err,item){	
@@ -126,7 +160,8 @@ app.get('/dash',(req,res) =>{
 				if(db_item==null)return;
 				dat.push((db_item));
 			}
-			res.render('dashboard', { user: item["name"], data: dat});
+
+			res.render('dashboard', { user: item["name"], data: dat, count:counter});
 			});
 		}
 	else{
@@ -137,6 +172,9 @@ app.get('/dash',(req,res) =>{
 });
 
 app.post('/signup', (req,res)=> {
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	var info = req.body;
 	bcrypt.genSalt(10, function(err, salt) {
 		if(err){
@@ -161,6 +199,9 @@ app.post('/signup', (req,res)=> {
 	});
 
 app.post('/login', (req,res)=> {
+	notes.findOne({id: 'count'}, async function(err,item){
+		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
 	var info = req.body;
 	users.findOne({email: info["email"]}, (err,item)=>{	
 		if(err){
@@ -172,7 +213,7 @@ app.post('/login', (req,res)=> {
 			}
 			if(info["email"]==item["email"] && result){
 				res.clearCookie('id');
-				res.cookie('id', item["id"], {maxAge:60000});
+				res.cookie('id', item["id"], {maxAge:600000});
 				res.redirect('/dash')
 				console.log("found the user");
 			}
@@ -183,9 +224,12 @@ app.post('/login', (req,res)=> {
 	});
 });
 
-app.post('/edit', (req,res)=> {
-	res.redirect('/');
-});
+// app.post('/edit', (req,res)=> {
+// 	notes.findOne({id: 'count'}, async function(err,item){
+// 		notes.updateOne({"id": "count"}, {$set: {"count": item["count"]+1}});})
+	
+// 	res.redirect('/');
+// });
 
 //-------------------------------------------------------------------------------------
 

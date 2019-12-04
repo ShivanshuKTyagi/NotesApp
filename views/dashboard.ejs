@@ -7,15 +7,18 @@
 	<link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="resources/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
   <body>
   <nav class="navbar navbar-expand-lg">
   
-    	<a class="navbar-brand" style="color: floralwhite;font-family: sans-serif">NOTES</a>
+    	<a class="navbar-brand" style="color: cornsilk;font-family: sans-serif">NOTES</a>
 	
-		<a class="navbar-brand my-4 my-lg-0 mx-auto" style="color: floralwhite;font-family: sans-serif">Welcome <%= user%></a>
+		<a class="navbar-brand my-4 my-lg-0 mx-auto" style="color: cornsilk;font-family: sans-serif">Welcome <%= user%></a>
 
 		<a href='/logout'><button type="button" class="btn btn-primary btn-sm-outline-dark">Logout</button></a>
 	
@@ -63,6 +66,40 @@
 		</div>
 
 
+
+		<div class="footer text-center">
+			<div class="container">
+				<div class="row">
+					<div class="footer-wrapper col-6">
+						<img id="shiv" src="resources/shiv.jpg" >
+						<h6 class="foo-text my-4 my-lg-0 mx-auto">This WebApp is created by Shivanshu Tyagi.</h6>
+					</div>
+					<div class="follow-us col-6">
+							<p style="padding: 30px;">This server was accessed <%- count %> times</p>
+						<p>Follow me:</p>
+						<div class="row text-center">
+								<div class="col-3">
+									<a href="https://www.facebook.com/shiv.2113" target="_blank"><img id="fb" src="resources/fb.svg" alt="fb"></a>
+								</div>
+								<div class="col-3">
+									<a href="https://www.instagram.com/shivanshu.t_/" target="_blank"><img id="insta" src="resources/insta.svg" alt="insta"></a>
+								</div>
+								<div class="col-3">
+									<a href="https://twitter.com/ShivanshuTyagi_" target="_blank"><img id="twitter" src="resources/twitter.svg" alt="twitter"></a>
+								</div>
+								<div class="col-3">
+									<a href="https://github.com/SpazeWalker" target="_blank"><img id="github" src="resources/github.svg" alt="github"></a>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		
 
 
 	  
