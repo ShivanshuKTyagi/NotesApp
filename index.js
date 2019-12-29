@@ -122,7 +122,7 @@ app.post('/delete', (req,res)=> {
 	
 	var id_del = req.body["id"];
 	console.log(id_del);
-	notes.deleteOne({id: id_del});
+	notes.deleteOne({nid: id_del});
 	console.log(req.body);
 	res.redirect('/');
 });
@@ -137,6 +137,7 @@ app.post('/add',(req,res) =>{
 		}	
 		notes.insertOne({
 			id: item["id"],
+			nid: makeid(20),
 			note: req.body["data"]
 		});
 	});
