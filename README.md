@@ -1,4 +1,4 @@
-# NotesApp (an iitk repo by shivanshu tyagi)
+# NotesApp (an repo by shivanshu tyagi)
 head to https://pnotes.herokuapp.com to try the deployed verson of the app.
 
 A Simple Notes app created using node-js, express-js, Mongo-db, HTML, CSS and Bootstrap.
