@@ -1,14 +1,13 @@
 //Modules
 const MongoClient = require('mongodb').MongoClient;
 var express = require('express');
-var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var ejs = require('ejs');
 var bodyparser = require('body-parser');
 var cookiePerser = require('cookie')
 var path = require('path');
 var bcrypt = require('bcryptjs')
-const dotenv = require('dotenv');
+var dotenv = require('dotenv');
 dotenv.config();
 
 function makeid(length) {

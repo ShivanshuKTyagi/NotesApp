@@ -1,16 +1,18 @@
 
-not that useful for pratical uses
+not that useful for pratical uses (Working to make it something)
+
+[![Build Status](https://travis-ci.com/spazewalker/NotesApp.svg?token=5xjzo1x6Xoez7WH47xxN&branch=master)](https://travis-ci.com/spazewalker/NotesApp)
 
  # NotesApp (an repo by shivanshu tyagi)
- > head to https://pnotes.herokuapp.com to try the deployed verson of the app.
+ ### head to https://pnotes.herokuapp.com to try the deployed verson of the app.
 
- > A Simple Notes app created using node-js, express-js, Mongo-db, HTML, CSS and Bootstrap.
+ ### A Simple Notes app created using node-js, express-js, Mongo-db, HTML, CSS and Bootstrap.
 it took me 5 days(nights XD) to make it, while learning (cz i didn't know how to make any such thing).
 
- > Frontend is developed by myself only with some help from google(some portions XD).
+ ### Frontend is developed by myself only with some help from google(some portions XD).
 Backend is written completely written by me using the docs of the technologies used.
 
- > login authentication works by storing a cookie in your browser.
+ ### login authentication works by storing a cookie in your browser.
 
 Middlewares used:
  1. bcryptjs : to hash password before storing them in db.

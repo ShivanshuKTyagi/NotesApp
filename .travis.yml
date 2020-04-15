@@ -1,2 +1,15 @@
+
+dist: bionic
+sudo: required
+language:
+  - generic
+cache:
+  - apt
+
+env:
+  global:
+    - KEY="mongodb+srv://dbuser:lgledishu@cluster0-ucofm.azure.mongodb.net/test?retryWrites=true&w=majority"
+
+
 language: node_js
 script: npm install && node index.js
